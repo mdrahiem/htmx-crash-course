@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Crash Course</title>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <h1 class="text-4xl text-center font-bold">Hello world</h1>
+    <button
+      hx-get="/users"
+      hx-target="#users"
+      hx-indicator="#loading"
+      hx-vals='{"limit": 2}'
+      class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200 ease-in-out"
+    >
+      Fetch users
+    </button>
+
+    <span class="htmx-indicator" id="loading">Loading...</span>
+    <div id="users" class="text-center"></div>
+  </body>
+</html>
